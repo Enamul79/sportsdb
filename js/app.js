@@ -1,5 +1,6 @@
 const allPlayers = () =>{
    // console.log('hello');
+   document.getElementById('players-container').innerHTML = '';
    const searchField = document.getElementById('search-box');
    const searchText = searchField.value;
    // console.log(searchText);
@@ -15,7 +16,8 @@ const allPlayers = () =>{
 allPlayers();
 
 const displayPlayersDetails = players =>{
-   console.log(players);
+   // console.log(players);
+
    for(const player of players){
       const parent = document.getElementById('players-container');
       const div = document.createElement('div');
@@ -63,20 +65,25 @@ const Details = (idPlayer) =>{
       .then(data => setDetails(data.players[0]))
 }
 const setDetails = (info) =>{
-   // console.log(info);
+   console.log(info.strGender);
+
+   if(info.strGender == male){
+      document.getElementById('male').style.display = 'block';
+      document.getElementById('female').style.display = 'none';
+   }else{
+      document.getElementById('male').style.display = 'none';
+      document.getElementById('female').style.display = 'block';
+   }
+
    const detailsContainer = document.getElementById('details-container');
    const detailsContainerText = detailsContainer.innerHTML;
    detailsContainer.innerHTML=`
       <div class="card border">
-
-                  <div class="pro-pic">
-                     <img class="w-50" src="${info.strThumb}" alt="">
-                  </div>
                   <h4>Name:${info.strPlayer} </h4>
                   <h5>Country: </h5>
                   <p>details: </p>
 
-               </div>
+      </div>
    `;
    detailsContainerText = '';
 }
