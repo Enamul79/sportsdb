@@ -85,5 +85,6 @@ const setDetails = (info) =>{
 
       </div>
    `;
-   detailsContainerText = '';
+   detailsContainer.innerHTML = '';
+   // detailsContainerText = '';
 }
