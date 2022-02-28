@@ -76,7 +76,7 @@ const setDetails = (info) =>{
    }
 
    const detailsContainer = document.getElementById('details-container');
-   const detailsContainerText = detailsContainer.innerHTML;
+   // const detailsContainerText = detailsContainer.innerHTML;
    detailsContainer.innerHTML=`
       <div class="card border">
                   <h4>Name:${info.strPlayer} </h4>
